@@ -110,7 +110,7 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        config.devicePixelRatio = Math.min(window.devicePixelRatio || 1, 1.5);   // piu' fluido sui telefoni
 
 
       } else {
@@ -161,5 +161,13 @@
       document.body.appendChild(script);
 
     </script>
+      <div id="gira">Gira il telefono in orizzontale per giocare &#x21bb;</div>
+    <style>
+      html, body { overscroll-behavior: none; touch-action: none; -webkit-user-select: none; user-select: none; }
+      #unity-canvas.unity-mobile { touch-action: none; }
+      #gira { display: none; position: fixed; inset: 0; z-index: 99; background: #1d2b55; color: #fff; font: bold 26px sans-serif;
+              align-items: center; justify-content: center; text-align: center; padding: 30px; }
+      @media (orientation: portrait) and (pointer: coarse) { #gira { display: flex; } }
+    </style>
   </body>
 </html>
